@@ -7,3 +7,4 @@ Mini python project:  file Investigator
 - Supports common text, image, video, audio and compressed/archive formats
 
 > ### How to run
+> 
