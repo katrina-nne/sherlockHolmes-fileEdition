@@ -1,6 +1,6 @@
 import os
 
-class FileInvestigatorVII:
+class FileInvestigator:
     def __init__(self):
         self.fileTypes ={"text":[".txt",".doc",".docx",".pdf"],"image":[".jpg",".jpeg",".png",".gif",".ico"],"video":[".mp4",".avi",".mov"],"audio":[".mp3",".wav",".aac"], "archive":[".zip",".rar",".tar",".gz"]}
         self.folder = input("Enter folder path: ")
@@ -16,8 +16,8 @@ class FileInvestigatorVII:
 
     def analyzeFiles(self):
         print("Files found:", len(self.files))
-        print("Type of files:")
-        print("______________________________"*3)
+        print("\tType of files:")
+        print("______________________________"*2)
 
         txt = 0 ;img = 0; vid = 0; aud = 0; arc = 0
 
@@ -36,15 +36,15 @@ class FileInvestigatorVII:
                     elif key == "archive":
                         arc += 1
 
-        print("\tText files:", txt)
-        print("\tImage files:", img)
-        print("\tVideo files:", vid)
-        print("\tAudio files:", aud)
-        print("\tCompressed files:", arc)
+        print("Text files:", txt)
+        print("Image files:", img)
+        print("Video files:", vid)
+        print("Audio files:", aud)
+        print("Compressed files:", arc)
 
     def findLargeFiles(self):
-        print("Large files: [bigger than 10MB]")
-        print("______________________________"*3)
+        print("\tLarge files: [bigger than 10MB]")
+        print("______________________________"*2)
 
         bigs = []
 
@@ -58,9 +58,9 @@ class FileInvestigatorVII:
             print("\tNo large files found.")
         else:
             for file, size in bigs:
-                print("\t", file,": ", size, " bytes") 
+                print("\t", file,":",round(size/1024/1024,2), "MB") 
 
-investigator = FileInvestigatorVII()
+investigator = FileInvestigator()
 investigator.analyzeFiles()
 investigator.findLargeFiles()            
         
